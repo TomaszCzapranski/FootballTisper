@@ -1,13 +1,12 @@
 package com.TMT.model.matches;
 
+import org.springframework.stereotype.Component;
+
+
 public class AwayTeam {
     int team_id;
     String team_name;
 
-    public AwayTeam(int team_id, String team_name) {
-        this.team_id = team_id;
-        this.team_name = team_name;
-    }
 
     public int getTeam_id() {
         return team_id;

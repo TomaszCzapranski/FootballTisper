@@ -1,6 +1,9 @@
 package com.TMT.model.matches;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
 
@@ -16,19 +19,8 @@ public class Fixtures {
     Integer goalsHomeTeam;
     Integer goalsAwayTeam;
 
-    public Fixtures(int fixture_id, String statusShort, Date event_date, String round, League league, HomeTeam homeTeam, AwayTeam awayTeam, Integer goalsHomeTeam, Integer goalsAwayTeam) {
-        this.fixture_id = fixture_id;
-        this.statusShort = statusShort;
-        this.event_date = event_date;
-        this.round = round;
-        this.league = league;
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
-        this.goalsHomeTeam = goalsHomeTeam;
-        this.goalsAwayTeam = goalsAwayTeam;
-    }
 
-    public int getFixture_id() {
+        public int getFixture_id() {
         return fixture_id;
     }
 

@@ -11,9 +11,12 @@ public class Api {
     int results;
 
     @Autowired
-    public Api(List<Fixtures> fixtures, int results) {
+    public Api(List<Fixtures> fixtures) {
         this.fixtures = fixtures;
-        this.results = results;
+
+    }
+
+    public Api() {
     }
 
     public List<Fixtures> getFixtures() {

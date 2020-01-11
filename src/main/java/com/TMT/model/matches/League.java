@@ -1,5 +1,8 @@
 package com.TMT.model.matches;
 
+import org.springframework.stereotype.Component;
+
+
 public class League {
     int id;
     String name;
@@ -26,12 +29,6 @@ public class League {
     }
 
     public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public League(int id, String name, String country) {
-        this.id = id;
-        this.name = name;
         this.country = country;
     }
 

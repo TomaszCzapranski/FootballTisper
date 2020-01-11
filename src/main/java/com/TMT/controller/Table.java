@@ -1,6 +1,6 @@
 package com.TMT.controller;
 
-import com.TMT.model.matches.Api;
+import com.TMT.model.matches.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -26,8 +26,8 @@ public class Table {
 
         HttpEntity entity = new HttpEntity(headers);
 
-        ResponseEntity<Api> response = restTemplate.exchange(
-                "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2/Regular_Season_-_11?timezone=Europe/London", HttpMethod.GET, entity, Api.class);
+        ResponseEntity<ApiService> response = restTemplate.exchange(
+                "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2/Regular_Season_-_11?timezone=Europe/London", HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
 
     }
