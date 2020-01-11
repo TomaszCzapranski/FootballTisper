@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> TMT. Your betting platform </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 <body>
-<h4 th:text="'Hello "></h4>
+<h1> TMT </h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Fixtures Id</th>
+        <th scope="col">Status Short</th>
+        <th scope="col">Event Day</th>
+        <th scope="col">Round</th>
+        <th scope="col">League</th>
+        <th scope="col">Home Team</th>
+        <th scope="col">Away Team</th>
+        <th scope="col">Goals Home Team</th>
+        <th scope="col">Goals Away Team</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="cat: ${catsList}">
+        <td th:text="${cat.id}" />
+        <td th:text="${cat.name}" />
+        <td th:text="${cat.age}" />
+        <td th:text="${cat.weight}" />
+        <td>
+            <form th:action="'/cats/delete/' + ${cat.id}" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+            <form th:action="'/cats/edit/' + ${cat.id}" method="GET">
+                <button type="submit" class="btn primary">Edit</button>
+            </form>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
 </body>
 </html>
