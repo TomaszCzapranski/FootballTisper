@@ -1,5 +1,7 @@
 package com.TMT.controller;
 
+import com.TMT.model.matches.ApiService;
+import com.TMT.service.FixtureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,10 +14,12 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class Table {
     private RestTemplate restTemplate;
+    private FixtureRepository fixtureRepository;
 
     @Autowired
-    public Table(RestTemplate restTemplate) {
+    public Table(RestTemplate restTemplate, FixtureRepository fixtureRepository) {
         this.restTemplate = restTemplate;
+        this.fixtureRepository = fixtureRepository;
     }
 
     public void neccesaryMethod(){
@@ -25,9 +29,14 @@ public class Table {
 
         HttpEntity entity = new HttpEntity(headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(
-                "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2/Regular_Season_-_11?timezone=Europe/London", HttpMethod.GET, entity, String.class);
+        ResponseEntity<ApiService> response = restTemplate.exchange(
+                "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2/Regular_Season_-_11?timezone=Europe/London", HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
+        fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
+
+
+
+
 
     }
 
