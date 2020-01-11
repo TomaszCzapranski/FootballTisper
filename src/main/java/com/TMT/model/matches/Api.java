@@ -5,16 +5,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+
 public class Api {
     List<Fixtures> fixtures;
     int results;
 
-    @Autowired
-    public Api(List<Fixtures> fixtures) {
-        this.fixtures = fixtures;
-
-    }
 
     public Api() {
     }

@@ -1,19 +1,21 @@
 package com.TMT.model.matches;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-
+@Entity(name = "league")
 public class League {
-    int id;
+    @Id
+    int league_id;
     String name;
     String country;
 
-    public int getId() {
-        return id;
+    public int getLeague_id() {
+        return league_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setLeague_id(int league_id) {
+        this.league_id = league_id;
     }
 
     public String getName() {

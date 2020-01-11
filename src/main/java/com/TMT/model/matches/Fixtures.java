@@ -4,17 +4,24 @@ package com.TMT.model.matches;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
-
+@Entity(name = "matches")
 public class Fixtures {
 
+    @Id
     int fixture_id;
     String statusShort;
     Date event_date;
     String round;
+    @OneToOne
     League league;
+    @OneToOne
     HomeTeam homeTeam;
+    @OneToOne
     AwayTeam awayTeam;
     Integer goalsHomeTeam;
     Integer goalsAwayTeam;

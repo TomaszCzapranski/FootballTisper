@@ -2,8 +2,12 @@ package com.TMT.model.matches;
 
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity(name = "homeTeam")
 public class HomeTeam {
+    @Id
     int team_id;
     String team_name;
 
