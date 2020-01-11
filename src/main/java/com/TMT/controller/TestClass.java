@@ -11,13 +11,13 @@ public class TestClass {
 
     private Table table;
 
-@Autowired
+    @Autowired
     public TestClass(Table table) {
         this.table = table;
     }
 
     @GetMapping
-    public void dupa(){
-    table.neccesaryMethod();
+    public void dupa() {
+        table.neccesaryMethod();
     }
 }

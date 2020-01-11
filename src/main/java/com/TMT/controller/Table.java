@@ -30,6 +30,7 @@ public class Table {
                 "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2/Regular_Season_-_11?timezone=Europe/London", HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
 
+
     }
 
 

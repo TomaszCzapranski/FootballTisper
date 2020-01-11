@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.util.Date;
 
-@Entity(name = "matches")
-public class Fixtures {
+@Entity(name = "fixtures")
+public class Fixture {
 
     @Id
     int fixture_id;
