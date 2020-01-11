@@ -4,34 +4,37 @@ package com.TMT.model.matches;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.Date;
 
 @Entity(name = "fixtures")
 public class Fixture {
 
     @Id
-    int fixture_id;
+    Long fixture_id;
     String statusShort;
-    Date event_date;
+    OffsetDateTime event_date;
     String round;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     League league;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     HomeTeam homeTeam;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     AwayTeam awayTeam;
     Integer goalsHomeTeam;
     Integer goalsAwayTeam;
 
 
-        public int getFixture_id() {
+    public Long getFixture_id() {
         return fixture_id;
     }
 
-    public void setFixture_id(int fixture_id) {
+    public void setFixture_id(Long fixture_id) {
         this.fixture_id = fixture_id;
     }
 
@@ -43,11 +46,11 @@ public class Fixture {
         this.statusShort = statusShort;
     }
 
-    public Date getEvent_date() {
+    public OffsetDateTime getEvent_date() {
         return event_date;
     }
 
-    public void setEvent_date(Date event_date) {
+    public void setEvent_date(OffsetDateTime event_date) {
         this.event_date = event_date;
     }
 
