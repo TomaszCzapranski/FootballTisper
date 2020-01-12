@@ -11,11 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
+
 
 @Component
 public class Table {
     private RestTemplate restTemplate;
     private FixtureRepository fixtureRepository;
+
+
 
     @Autowired
     public Table(RestTemplate restTemplate, FixtureRepository fixtureRepository) {
@@ -31,12 +35,22 @@ public class Table {
         HttpEntity entity = new HttpEntity(headers);
 
 
-        ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequest(league_id, round), HttpMethod.GET, entity, ApiService.class);
+        ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequestByRound(league_id, round), HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
+    }
+
+    public void updateDay(int league_id, LocalDate date){
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
+        headers.set("x-rapidapi-key", "d98a7e39a9msh4c36542c88fb628p1be9f4jsnb47049c7faba");
+
+        HttpEntity entity = new HttpEntity(headers);
 
 
-
+        ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequestByDate(league_id, date), HttpMethod.GET, entity, ApiService.class);
+        System.out.println(response);
+        fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
 
     }
 

@@ -20,10 +20,12 @@ public class Profile {
     private String password;
 
     private String email;
+    private String status;
 
     private Long points;
 
-    private Set<Fixture> placedBets;
 
-    private List<Fixture> userBets;
+//    private Set<Fixture> placedBets;
+
+
 }
