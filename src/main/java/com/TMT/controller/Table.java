@@ -56,9 +56,9 @@ public class Table {
         System.out.println(response);
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
 
-        GameManager gameManager = new GameManager(profileRepository);
-
-        gameManager.updatePoints();
+//        GameManager gameManager = new GameManager(profileRepository);
+//
+//        gameManager.updatePoints();
 
     }
 
