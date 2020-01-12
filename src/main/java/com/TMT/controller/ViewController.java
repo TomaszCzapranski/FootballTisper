@@ -1,6 +1,5 @@
 package com.TMT.controller;
 
-import com.TMT.service.FixtureManager;
 import com.TMT.service.FixtureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,5 +23,10 @@ public class ViewController {
         model.addAttribute("fixtureList", fixtureRepository.findAll());
         return "index";
 
+    }
+
+    @GetMapping("/register")
+    public String registerForm(){
+        return "register";
     }
 }

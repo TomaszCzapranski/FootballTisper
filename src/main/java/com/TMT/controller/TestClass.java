@@ -2,6 +2,7 @@ package com.TMT.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,4 +26,6 @@ public class TestClass {
         table.updateDay(524, LocalDate.now().minusDays(1));
 
     }
+
+
 }
