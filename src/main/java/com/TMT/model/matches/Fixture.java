@@ -28,6 +28,21 @@ public class Fixture {
     AwayTeam awayTeam;
     Integer goalsHomeTeam;
     Integer goalsAwayTeam;
+    String result;
+
+    public String getResult() {
+        if (!(goalsAwayTeam == null)&&!(goalsHomeTeam==null)){
+            result = goalsHomeTeam + "-" + goalsAwayTeam;
+        } else {
+            result = " ";
+        }
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
 
 
     public Long getFixture_id() {

@@ -10,7 +10,6 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">Fixtures Id</th>
         <th scope="col">Status Short</th>
         <th scope="col">Event Date</th>
         <th scope="col">Round</th>
@@ -18,15 +17,14 @@
         <th scope="col">League Name</th>
         <th scope="col">Home Team</th>
         <th scope="col">Away Team</th>
-        <th scope="col">Goals Home Team</th>
-        <th scope="col">Goals Away Team</th>
+        <th scope="col">Result</th>
 
     </tr>
     </thead>
     <tbody>
 
     <tr th:each="fixture: ${fixtureList}">
-        <td th:text="${fixture.fixture_id}" />
+
         <td th:text="${fixture.statusShort}" />
         <td th:text="${fixture.event_date}" />
         <td th:text="${fixture.round}" />
@@ -34,8 +32,8 @@
         <td th:text="${fixture.league.name}" />
         <td th:text="${fixture.homeTeam.team_name}" />
         <td th:text="${fixture.awayTeam.team_name}" />
-        <td th:text="${fixture.goalsHomeTeam}" />
-        <td th:text="${fixture.goalsAwayTeam}" />
+        <td th:text="${fixture.result}" />
+
 
 <!--        <td>-->
 <!--            <form th:action="'/cats/delete/' + ${cat.id}" method="POST">-->
