@@ -18,6 +18,7 @@ public class TestClass {
 
     @GetMapping
     public void dupa() {
-        table.neccesaryMethod();
+        table.updadeRound(524, 20);
+        table.updadeRound(524, 21);
     }
 }

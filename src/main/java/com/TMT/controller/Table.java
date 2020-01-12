@@ -1,6 +1,7 @@
 package com.TMT.controller;
 
 import com.TMT.model.matches.ApiService;
+import com.TMT.model.matches.RequestFactory;
 import com.TMT.service.FixtureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -22,24 +23,22 @@ public class Table {
         this.fixtureRepository = fixtureRepository;
     }
 
-    public void neccesaryMethod(){
+    public void updadeRound(int league_id, int round) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
         headers.set("x-rapidapi-key", "d98a7e39a9msh4c36542c88fb628p1be9f4jsnb47049c7faba");
 
         HttpEntity entity = new HttpEntity(headers);
 
-        ResponseEntity<ApiService> response = restTemplate.exchange(
-                "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2/Regular_Season_-_11?timezone=Europe/London", HttpMethod.GET, entity, ApiService.class);
+
+        ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequest(league_id, round), HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
 
 
 
 
-
     }
-
 
 
 }
