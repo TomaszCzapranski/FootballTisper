@@ -1,10 +1,10 @@
 package com.TMT.model.users;
 
+import com.TMT.model.game.UserBet;
 import com.TMT.model.matches.Fixture;
+import org.graalvm.compiler.lir.LIRInstruction;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
@@ -23,9 +23,14 @@ public class Profile {
     private String status;
 
     private Long points;
+    @OneToMany
+    private List<UserBet> bets;
 
 
 //    private Set<Fixture> placedBets;
 
 
+    public List<UserBet> getBets() {
+        return bets;
+    }
 }
