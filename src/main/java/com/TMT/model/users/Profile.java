@@ -23,7 +23,6 @@ public class Profile {
 
     private Long points;
 
-    private Set<Fixture> placedBets;
+//    private Set<Fixture> placedBets;
 
-    private List<Fixture> userBets;
 }
