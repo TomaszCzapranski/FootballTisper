@@ -23,7 +23,7 @@ public class Table {
         this.fixtureRepository = fixtureRepository;
     }
 
-    public void neccesaryMethod(){
+    public void updadeRound(int league_id, int round) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
         headers.set("x-rapidapi-key", "d98a7e39a9msh4c36542c88fb628p1be9f4jsnb47049c7faba");
@@ -31,16 +31,14 @@ public class Table {
         HttpEntity entity = new HttpEntity(headers);
 
 
-        ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequest(524,22), HttpMethod.GET, entity, ApiService.class);
+        ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequest(league_id, round), HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
 
 
 
 
-
     }
-
 
 
 }
