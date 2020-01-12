@@ -1,8 +1,10 @@
 package com.TMT.controller;
 
+import com.TMT.model.game.GameManager;
 import com.TMT.model.matches.ApiService;
 import com.TMT.model.matches.RequestFactory;
 import com.TMT.service.FixtureRepository;
+import com.TMT.service.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,13 +20,15 @@ import java.time.LocalDate;
 public class Table {
     private RestTemplate restTemplate;
     private FixtureRepository fixtureRepository;
+    private ProfileRepository profileRepository;
 
 
 
     @Autowired
-    public Table(RestTemplate restTemplate, FixtureRepository fixtureRepository) {
+    public Table(RestTemplate restTemplate, FixtureRepository fixtureRepository, ProfileRepository profileRepository) {
         this.restTemplate = restTemplate;
         this.fixtureRepository = fixtureRepository;
+        this.profileRepository = profileRepository;
     }
 
     public void updadeRound(int league_id, int round) {
@@ -51,6 +55,10 @@ public class Table {
         ResponseEntity<ApiService> response = restTemplate.exchange(RequestFactory.createRequestByDate(league_id, date), HttpMethod.GET, entity, ApiService.class);
         System.out.println(response);
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
+
+        GameManager gameManager = new GameManager(profileRepository);
+
+        gameManager.updatePoints();
 
     }
 

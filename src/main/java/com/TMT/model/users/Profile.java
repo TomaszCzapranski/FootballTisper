@@ -1,10 +1,12 @@
 package com.TMT.model.users;
 
+import com.TMT.model.game.UserBet;
 import com.TMT.model.matches.Fixture;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.Set;
 
@@ -24,15 +26,27 @@ public class Profile {
 
     private Long points;
 
+    public List<UserBet> getBets() {
+        return bets;
+    }
+
+    public void setBets(List<UserBet> bets) {
+        this.bets = bets;
+    }
+
+    @OneToMany
+    private List<UserBet> bets = null;
+
+
     public Profile() {
     }
 
     public Profile(String name, String password, String email) {
+
         this.name = name;
         this.password = password;
         this.email = email;
     }
-//    private Set<Fixture> placedBets;
 
 
     public Long getId() {

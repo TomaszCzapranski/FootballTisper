@@ -25,6 +25,7 @@ public class TestClass {
 //        table.updadeRound(524, 21);
         table.updateDay(524, LocalDate.now().minusDays(1));
 
+
     }
 
 
