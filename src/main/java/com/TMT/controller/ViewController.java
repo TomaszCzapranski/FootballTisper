@@ -3,6 +3,7 @@ package com.TMT.controller;
 import com.TMT.model.users.Profile;
 import com.TMT.service.FixtureRepository;
 import com.TMT.service.ProfileManager;
+import com.TMT.service.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +23,13 @@ public class ViewController {
 
     private FixtureRepository fixtureRepository;
     private ProfileManager profileManager;
+    private ProfileRepository profileRepository;
 
     @Autowired
-    public ViewController(FixtureRepository fixtureRepository, ProfileManager profileManager) {
+    public ViewController(FixtureRepository fixtureRepository, ProfileManager profileManager, ProfileRepository profileRepository) {
         this.fixtureRepository = fixtureRepository;
         this.profileManager = profileManager;
+        this.profileRepository = profileRepository;
     }
 
     @GetMapping
@@ -36,6 +39,12 @@ public class ViewController {
 
     }
 
+    @GetMapping ("/profile")
+    public String showProfile(Model model) {
+        model.addAttribute("profileList", profileRepository.findAll());
+        return "profile";
+
+    }
     @GetMapping("/register")
     public String registerForm() {
         return "register";
