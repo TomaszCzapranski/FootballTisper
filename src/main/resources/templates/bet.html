@@ -8,9 +8,10 @@
 <body style="background-color: gold">
 <center><img src="/images/TMTtipster.jpg"></center>
 
-<button type="submit" onclick="window.location.href='/register'"><b>Register</b>
+<button type="submit" onclick="window.location.href='/'"><b>Main</b>
+
 </button>
-<button type="submit" onclick="window.location.href='/betting'"><b>Bet your fixtures</b></button>
+
 <table class="table">
     <thead>
     <tr>
@@ -27,7 +28,7 @@
     </thead>
     <tbody>
 
-    <tr th:each="fixture: ${fixtureList}">
+    <tr th:each="fixture: ${bettingList}">
 
         <td th:text="${fixture.statusShort}"/>
         <td th:text="${fixture.event_date}"/>

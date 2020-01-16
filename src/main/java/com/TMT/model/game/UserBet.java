@@ -10,6 +10,14 @@ import javax.persistence.OneToOne;
 @Entity
 public class UserBet {
 
+    public UserBet() {
+    }
+
+    public UserBet(Fixture fixture){
+        this.fixture = fixture;
+
+    }
+
     @Id
     int user_bet_id;
     @OneToOne

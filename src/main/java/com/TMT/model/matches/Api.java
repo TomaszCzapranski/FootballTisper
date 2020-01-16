@@ -1,5 +1,7 @@
 package com.TMT.model.matches;
 
+import com.TMT.model.users.Profile;
+
 import java.util.List;
 
 
@@ -18,4 +20,6 @@ public class Api {
     public void setFixtures(List<Fixture> fixtures) {
         this.fixtures = fixtures;
     }
+
+
 }

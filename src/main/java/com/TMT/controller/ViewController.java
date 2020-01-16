@@ -37,7 +37,7 @@ public class ViewController {
     }
 
     @GetMapping("/register")
-    public String registerForm(){
+    public String registerForm() {
         return "register";
     }
 
@@ -45,5 +45,11 @@ public class ViewController {
     public RedirectView addCat(Profile profile) {
         profileManager.addProfile(profile);
         return new RedirectView("/");
+    }
+
+    @GetMapping("/betting")
+    public String bettingForm(Model model) {
+        model.addAttribute("bettingList", fixtureRepository.findAll());
+        return "bet";
     }
 }

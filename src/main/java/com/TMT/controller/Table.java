@@ -1,8 +1,11 @@
 package com.TMT.controller;
 
+import com.TMT.model.game.FixtureUserBetConverter;
 import com.TMT.model.game.GameManager;
 import com.TMT.model.matches.ApiService;
+import com.TMT.model.matches.Fixture;
 import com.TMT.model.matches.RequestFactory;
+import com.TMT.model.users.Profile;
 import com.TMT.service.FixtureRepository;
 import com.TMT.service.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Component
@@ -56,9 +60,22 @@ public class Table {
         System.out.println(response);
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
 
-        GameManager gameManager = new GameManager(profileRepository);
 
-        gameManager.updatePoints();
+//        GameManager gameManager = new GameManager(profileRepository);
+
+//        gameManager.updatePoints();
+
+    }
+
+    public void updateProfile(){
+        List<Fixture> fixtureList = fixtureRepository.findAll();
+        List<Profile> profileList =profileRepository.findAll();
+        FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter();
+        for (Profile profile: profileList) {
+            profile.setBets(fixtureUserBetConverter.getFixturesToBet(fixtureList));
+        }
+        profileRepository.saveAll(profileList);
+
 
     }
 
