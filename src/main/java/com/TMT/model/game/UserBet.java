@@ -2,6 +2,7 @@ package com.TMT.model.game;
 
 
 import com.TMT.model.matches.Fixture;
+import com.TMT.model.users.Profile;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,13 +14,16 @@ public class UserBet {
     public UserBet() {
     }
 
-    public UserBet(Fixture fixture){
+    public UserBet(Fixture fixture, Profile profile){
         this.fixture = fixture;
-
+        this.user_bet_id=profile.getId();
+        this.HomeGoalsBet = Integer.parseInt(null);
+        this.AwayGoalsBet = Integer.parseInt(null);
+        this.points=Integer.parseInt(null);
     }
 
     @Id
-    int user_bet_id;
+    Long user_bet_id;
     @OneToOne
     private Fixture fixture;
     int HomeGoalsBet;

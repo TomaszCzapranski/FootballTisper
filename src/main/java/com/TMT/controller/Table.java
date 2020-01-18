@@ -72,7 +72,7 @@ public class Table {
         List<Profile> profileList =profileRepository.findAll();
         FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter();
         for (Profile profile: profileList) {
-            profile.setBets(fixtureUserBetConverter.getFixturesToBet(fixtureList));
+            profile.setBets(fixtureUserBetConverter.getFixturesToBet(fixtureList, profile));
         }
         profileRepository.saveAll(profileList);
 

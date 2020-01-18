@@ -6,10 +6,10 @@
 //
 //import java.util.List;
 //
-//public interface UserBetRepository extends JpaRepository<UserBet,int> {
+//public interface UserBetRepository extends JpaRepository<UserBet,Long> {
 //
 //
 //
-//    List<UserBet> findUserBetByRoundAndLeague(Profile user);
+//    List<UserBet> findUserBetByProfile(Profile user);
 //
 //}

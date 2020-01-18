@@ -4,6 +4,7 @@ import com.TMT.model.users.Profile;
 import com.TMT.service.FixtureRepository;
 import com.TMT.service.ProfileManager;
 import com.TMT.service.ProfileRepository;
+//import com.TMT.service.UserBetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,15 @@ public class ViewController {
     private FixtureRepository fixtureRepository;
     private ProfileManager profileManager;
     private ProfileRepository profileRepository;
+//    private UserBetRepository userBetRepository;
+
+//    @Autowired
+//    public ViewController(FixtureRepository fixtureRepository, ProfileManager profileManager, ProfileRepository profileRepository, UserBetRepository userBetRepository) {
+//        this.fixtureRepository = fixtureRepository;
+//        this.profileManager = profileManager;
+//        this.profileRepository = profileRepository;
+//        this.userBetRepository = userBetRepository;
+//    }
 
     @Autowired
     public ViewController(FixtureRepository fixtureRepository, ProfileManager profileManager, ProfileRepository profileRepository) {
@@ -58,7 +68,8 @@ public class ViewController {
 
     @GetMapping("/betting")
     public String bettingForm(Model model) {
-        model.addAttribute("bettingList", fixtureRepository.findAll());
+//        model.addAttribute("bettingList", userBetRepository.findAll());
+        model.addAttribute("bettingList", profileRepository.findAll());
         return "bet";
     }
 }
