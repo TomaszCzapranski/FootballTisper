@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -66,10 +68,24 @@ public class ViewController {
         return new RedirectView("/");
     }
 
-    @GetMapping("/betting")
-    public String bettingForm(Model model) {
+//    @GetMapping("/betting")
+//    public String bettingForm(Model model, Principal principal) {
 //        model.addAttribute("bettingList", userBetRepository.findAll());
-        model.addAttribute("bettingList", profileRepository.findAll());
-        return "bet";
+//        Optional<Profile> profile = profileRepository.findProfileByName(principal.getName());
+//                if(profile.isPresent()) {
+//                    profile.get().
+//                } else {
+//
+//                }
+    @GetMapping("/bet")
+            public String bettingForm(Model model){
+//                model.addAttribute("bettingList", UserBetRepository.findAll());
+                Optional<Profile> profile = profileRepository.findById(1L);
+                if(profile.isPresent()){
+                    model.addAttribute("bettingList", profile.get().getBets());
+                    return "bet";
+
+                }else return "profileNotFoundException";
+
     }
 }

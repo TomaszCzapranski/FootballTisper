@@ -28,16 +28,16 @@
     </thead>
     <tbody>
 
-    <tr th:each="fixture: ${fixtureList}">
+    <tr th:each="userBet: ${bettingList}">
 
-        <td th:text="${fixture.statusShort}"/>
-        <td th:text="${fixture.event_date}"/>
-        <td th:text="${fixture.round}"/>
-        <td th:text="${fixture.league.country}"/>
-        <td th:text="${fixture.league.name}"/>
-        <td th:text="${fixture.homeTeam.team_name}"/>
-        <td th:text="${fixture.awayTeam.team_name}"/>
-        <td th:text="${fixture.result}"/>
+        <td th:text="${userBet.fixture.statusShort}"/>
+        <td th:text="${userBet.fixture.event_date}"/>
+        <td th:text="${userBet.fixture.round}"/>
+        <td th:text="${userBet.fixture.league.country}"/>
+        <td th:text="${userBet.fixture.league.name}"/>
+        <td th:text="${userBet.fixture.homeTeam.team_name}"/>
+        <td th:text="${userBet.fixture.awayTeam.team_name}"/>
+        <td th:text="${userBet.fixture.result}"/>
 
 
         <!--        <td>-->

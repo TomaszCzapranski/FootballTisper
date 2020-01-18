@@ -25,6 +25,8 @@
 //    }
 //
 //    public List<UserBet> getAllUserBetsByUser(Profile profile){
-//        return userBetRepository.findAll();
+//        return userBetRepository.findUserBetByProfile(profile);
 //    }
+//
+//
 //}

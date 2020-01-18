@@ -4,9 +4,7 @@ package com.TMT.model.game;
 import com.TMT.model.matches.Fixture;
 import com.TMT.model.users.Profile;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class UserBet {
@@ -16,25 +14,28 @@ public class UserBet {
 
     public UserBet(Fixture fixture, Profile profile){
         this.fixture = fixture;
-        this.user_bet_id=profile.getId();
-        this.HomeGoalsBet = Integer.parseInt(null);
-        this.AwayGoalsBet = Integer.parseInt(null);
-        this.points=Integer.parseInt(null);
+        this.HomeGoalsBet = null;
+        this.AwayGoalsBet = null;
+        this.points= null;
     }
 
     @Id
+    @GeneratedValue
     Long user_bet_id;
     @OneToOne
     private Fixture fixture;
-    int HomeGoalsBet;
-    int AwayGoalsBet;
-    int points;
+    @Column(nullable = true)
+    Integer HomeGoalsBet;
+    @Column(nullable = true)
+    Integer AwayGoalsBet;
+    @Column(nullable = true)
+    Integer points;
 
     public int getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
 
@@ -42,11 +43,11 @@ public class UserBet {
         return fixture;
     }
 
-    public int getHomeGoalsBet() {
+    public Integer getHomeGoalsBet() {
         return HomeGoalsBet;
     }
 
-    public void setHomeGoalsBet(int homeGoalsBet) {
+    public void setHomeGoalsBet(Integer homeGoalsBet) {
         HomeGoalsBet = homeGoalsBet;
     }
 
@@ -54,7 +55,7 @@ public class UserBet {
         return AwayGoalsBet;
     }
 
-    public void setAwayGoalsBet(int awayGoalsBet) {
+    public void setAwayGoalsBet(Integer awayGoalsBet) {
         AwayGoalsBet = awayGoalsBet;
     }
 }

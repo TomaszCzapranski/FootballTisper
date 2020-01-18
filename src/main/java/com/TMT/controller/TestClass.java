@@ -21,9 +21,9 @@ public class TestClass {
 
     @GetMapping
     public void dupa() {
-//        table.updadeRound(524, 20);
-//        table.updadeRound(524, 21);
-        table.updateDay(524, LocalDate.now().minusDays(1));
+        table.updadeRound(524, 20);
+        table.updadeRound(524, 21);
+//        table.updateDay(524, LocalDate.now().minusDays(0));
         table.updateProfile();
 
 

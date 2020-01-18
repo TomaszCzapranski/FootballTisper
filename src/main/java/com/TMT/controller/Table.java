@@ -27,7 +27,6 @@ public class Table {
     private ProfileRepository profileRepository;
 
 
-
     @Autowired
     public Table(RestTemplate restTemplate, FixtureRepository fixtureRepository, ProfileRepository profileRepository) {
         this.restTemplate = restTemplate;
@@ -48,7 +47,7 @@ public class Table {
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
     }
 
-    public void updateDay(int league_id, LocalDate date){
+    public void updateDay(int league_id, LocalDate date) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
         headers.set("x-rapidapi-key", "d98a7e39a9msh4c36542c88fb628p1be9f4jsnb47049c7faba");
@@ -67,17 +66,35 @@ public class Table {
 
     }
 
-    public void updateProfile(){
+    public void updateProfile() {
         List<Fixture> fixtureList = fixtureRepository.findAll();
-        List<Profile> profileList =profileRepository.findAll();
-        FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter();
-        for (Profile profile: profileList) {
-            profile.setBets(fixtureUserBetConverter.getFixturesToBet(fixtureList, profile));
-        }
-        profileRepository.saveAll(profileList);
+        List<Profile> profileList = profileRepository.findAll();
+        if (fixtureList != null) {
 
+
+            FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter(fixtureList);
+            for (Profile profile : profileList) {
+                profile.setBets(fixtureUserBetConverter.getFixturesToBet(profile));
+            }
+            profileRepository.saveAll(profileList);
+
+        } else System.out.println("FixtureListIsNull");
 
     }
 
+    public void updateProfile(int ProfileId) {
+        List<Fixture> fixtureList = fixtureRepository.findAll();
+        List<Profile> profileList = profileRepository.findAll();
+        Profile profile = profileList.get(ProfileId);
+        if (fixtureList != null) {
 
+
+            FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter(fixtureList);
+
+                profile.setBets(fixtureUserBetConverter.getFixturesToBet(profile));
+                    profileRepository.saveAll(profileList);
+
+        } else System.out.println("FixtureListIsNull");
+
+    }
 }
