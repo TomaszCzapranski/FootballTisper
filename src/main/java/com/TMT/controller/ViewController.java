@@ -80,7 +80,7 @@ public class ViewController {
     @GetMapping("/bet")
             public String bettingForm(Model model){
 //                model.addAttribute("bettingList", UserBetRepository.findAll());
-                Optional<Profile> profile = profileRepository.findById(1L);
+                Optional<Profile> profile = profileRepository.findByName("tomek");
                 if(profile.isPresent()){
                     model.addAttribute("bettingList", profile.get().getBets());
                     return "bet";

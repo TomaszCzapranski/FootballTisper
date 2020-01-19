@@ -37,7 +37,13 @@
         <td th:text="${userBet.fixture.league.name}"/>
         <td th:text="${userBet.fixture.homeTeam.team_name}"/>
         <td th:text="${userBet.fixture.awayTeam.team_name}"/>
-        <td th:text="${userBet.fixture.result}"/>
+//        <td th:text="${userBet.fixture.result}"/>
+<td form action="/game/editBet" method="POST">
+        <label for="result"> Result</label>
+        <input id="result" type="text" name="result"><br>
+<button type="submit" class="btn btn-primary">Save</button>
+
+    <br>
 
 
         <!--        <td>-->

@@ -30,6 +30,20 @@ public class UserBet {
     Integer AwayGoalsBet;
     @Column(nullable = true)
     Integer points;
+    @ManyToOne
+    Profile profile;
+
+    public Long getUser_bet_id() {
+        return user_bet_id;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
 
     public int getPoints() {
         return points;

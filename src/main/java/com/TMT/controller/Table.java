@@ -2,11 +2,13 @@ package com.TMT.controller;
 
 import com.TMT.model.game.FixtureUserBetConverter;
 import com.TMT.model.game.GameManager;
+import com.TMT.model.game.UserBet;
 import com.TMT.model.matches.ApiService;
 import com.TMT.model.matches.Fixture;
 import com.TMT.model.matches.RequestFactory;
 import com.TMT.model.users.Profile;
 import com.TMT.service.FixtureRepository;
+import com.TMT.service.ProfileManager;
 import com.TMT.service.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -14,7 +16,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -60,9 +64,6 @@ public class Table {
         fixtureRepository.saveAll(response.getBody().getApi().getFixtures());
 
 
-//        GameManager gameManager = new GameManager(profileRepository);
-
-//        gameManager.updatePoints();
 
     }
 
@@ -82,19 +83,26 @@ public class Table {
 
     }
 
-    public void updateProfile(int ProfileId) {
-        List<Fixture> fixtureList = fixtureRepository.findAll();
-        List<Profile> profileList = profileRepository.findAll();
-        Profile profile = profileList.get(ProfileId);
-        if (fixtureList != null) {
 
 
-            FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter(fixtureList);
 
-                profile.setBets(fixtureUserBetConverter.getFixturesToBet(profile));
-                    profileRepository.saveAll(profileList);
 
-        } else System.out.println("FixtureListIsNull");
 
-    }
+
+//    public void updateProfile(int ProfileId) {
+//        List<Fixture> fixtureList = fixtureRepository.findAll();
+//        List<Profile> profileList = profileRepository.findAll();
+//        Profile profile = profileList.get(ProfileId);
+//        if (fixtureList != null) {
+//
+//
+//            FixtureUserBetConverter fixtureUserBetConverter = new FixtureUserBetConverter(fixtureList);
+//
+//                profile.setBets(fixtureUserBetConverter.getFixturesToBet(profile));
+//                    profileRepository.saveAll(profileList);
+//
+//        } else System.out.println("FixtureListIsNull");
+//
+//    }
 }
+

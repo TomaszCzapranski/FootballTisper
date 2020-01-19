@@ -14,6 +14,7 @@ public class Profile {
     @GeneratedValue
     private Long id;
 
+
     private String name;
 
     private String password;
