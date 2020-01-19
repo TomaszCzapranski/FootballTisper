@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserBetManager implements InitializingBean {
@@ -24,26 +25,23 @@ public class UserBetManager implements InitializingBean {
 
     }
 
-    public List<UserBet> getAllUserBetsByUser(Profile profile){
-        return userBetRepository.findUserBetByProfile(profile);
-    }
+//    public List<UserBet> getAllUserBetsByUser(Profile profile){
+//        return userBetRepository.findById();
+//    }
 
-    public static void updateUserBet(UserBet userBet){
+    public void updateUserBet(UserBet userBet, Long id){
 
 //        UserBetRepository.saveAndFlush(userBet);
 
-        List<UserBet> allUserBets = UserBetRepository.findAll().contains(userBet.getProfile());
-        long index = userBet.getUser_bet_id();
+
+        Optional<UserBet> bet = userBetRepository.findById(id);
+//        Cat existingCat = catRepository.findById(id).orElseThrow(CatNotFoundException::new);
+        bet.get().setAwayGoalsBet(userBet.getAwayGoalsBet());
+        bet.get().setHomeGoalsBet(userBet.getHomeGoalsBet());
+        userBetRepository.save(userBet);
 
 
     }
-
-
-
-
-        UserBetRepository.findBetByProfile(userBet.getProfile());
-        UserBet existUserBet = UserBetRepository.findUserBetByProfile(userBet.getProfile()).get(userBet.getUser_bet_id());
-        UserBetRepository.merge()
 
 
     }
@@ -62,4 +60,3 @@ public class UserBetManager implements InitializingBean {
 //        return new RedirectView("/bet");
 //    }
 //}
-}

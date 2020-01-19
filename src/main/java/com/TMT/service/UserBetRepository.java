@@ -10,8 +10,4 @@ public interface UserBetRepository extends JpaRepository<UserBet,Long> {
 
 
 
-
-
-//    List<UserBet> findUserBetByProfile(Profile user);
-
 }

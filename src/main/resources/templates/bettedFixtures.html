@@ -8,6 +8,9 @@
 <body style="background-color: gold">
 <center><img src="/images/TMTtipster.jpg"></center>
 
+<button type="submit" onclick="window.location.href='/register'"><b>Register</b>
+</button>
+<button type="submit" onclick="window.location.href='/bet'"><b>Bet your fixtures</b></button>
 <button type="submit" onclick="window.location.href='/'"><b>Main</b>
 
 </button>
@@ -20,8 +23,8 @@
         <th scope="col">Round</th>
         <th scope="col">League Country</th>
         <th scope="col">League Name</th>
-        <th scope="col">Home Team</th>
-        <th scope="col">Away Team</th>
+        <th scope="col">Betted Home Team</th>
+        <th scope="col">Betted Team</th>
         <th scope="col">Result</th>
 
     </tr>
@@ -37,16 +40,8 @@
         <td th:text="${userBet.fixture.league.name}"/>
         <td th:text="${userBet.fixture.homeTeam.team_name}"/>
         <td th:text="${userBet.fixture.awayTeam.team_name}"/>
-//        <td th:text="${userBet.fixture.result}"/>
-<form th:action="'/game/editBet/' + ${userBet.user_bet_id}" method="POST">
-        <label for="result"> Result</label>
-        <input id="home" type="text" name="HomeGoalsBet"><br>
-        <input id="away" type="text" name="AwayGoalsBet"><br>
-
-<button type="submit" class="btn btn-primary">Save</button>
-</form>
-
-    <br>
+        <td th:text="${userBet.HomeGoalsBet}"/>
+        <td th:text="${userBet.AwayGoalsBet}"/>
 
 
         <!--        <td>-->

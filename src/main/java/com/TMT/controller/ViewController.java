@@ -27,6 +27,7 @@ public class ViewController {
     private FixtureRepository fixtureRepository;
     private ProfileManager profileManager;
     private ProfileRepository profileRepository;
+
 //    private UserBetRepository userBetRepository;
 
 //    @Autowired
@@ -88,4 +89,16 @@ public class ViewController {
                 }else return "profileNotFoundException";
 
     }
+
+    @GetMapping("/bettedFixtures")
+    public String betedFixtures(Model model){
+        Optional<Profile> profile = profileRepository.findByName("tomek");
+        if(profile.isPresent()){
+            model.addAttribute("bettingList", profile.get().getBets());
+            return "bettedFixtures";
+
+        }else return "profileNotFoundException";
+    }
+
+
 }
