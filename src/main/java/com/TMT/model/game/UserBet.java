@@ -17,6 +17,7 @@ public class UserBet {
         this.HomeGoalsBet = null;
         this.AwayGoalsBet = null;
         this.points= null;
+        this.profile = profile;
     }
 
     @Id

@@ -29,19 +29,36 @@ public class UserBetManager implements InitializingBean {
 //        return userBetRepository.findById();
 //    }
 
-    public void updateUserBet(UserBet userBet, Long id){
-
-//        UserBetRepository.saveAndFlush(userBet);
 
 
-        Optional<UserBet> bet = userBetRepository.findById(id);
-//        Cat existingCat = catRepository.findById(id).orElseThrow(CatNotFoundException::new);
-        bet.get().setAwayGoalsBet(userBet.getAwayGoalsBet());
-        bet.get().setHomeGoalsBet(userBet.getHomeGoalsBet());
-        userBetRepository.save(userBet);
+    public void updateUserBet(Long id, UserBet userBet) {
+        UserBet existingUserBet = userBetRepository.findById(id).orElseThrow(NullPointerException::new);
 
+        existingUserBet.setAwayGoalsBet(userBet.getAwayGoalsBet());
+        existingUserBet.setHomeGoalsBet(userBet.getHomeGoalsBet());
+        userBetRepository.save(existingUserBet);
 
     }
+
+
+
+
+//    public void updateUserBet(UserBet userBet, Long id){
+//
+////        UserBetRepository.saveAndFlush(userBet);
+//
+//
+//        if (userBetRepository.findById(id).isPresent()){
+//            Optional<UserBet> userBetToSave = userBetRepository.findById(id);
+//            userBetToSave.get().setAwayGoalsBet(userBet.getAwayGoalsBet());
+//            user.get().setHomeGoalsBet(userBet.getHomeGoalsBet());
+//            userBetRepository.save(bet);
+//
+//        }
+////        Cat existingCat = catRepository.findById(id).orElseThrow(CatNotFoundException::new);
+//            UserBet betToSave = bet;
+//
+//        }
 
 
     }

@@ -8,10 +8,15 @@
 <body style="background-color: gold">
 <center><img src="/images/TMTtipster.jpg"></center>
 
-<button type="submit" onclick="window.location.href='/register'"><b>Register</b>
+<button type="submit" onclick="window.location.href='/'"><b>Main</b>
 </button>
 <button type="submit" onclick="window.location.href='/bet'"><b>Bet your fixtures</b></button>
-<button type="submit" onclick="window.location.href='/'"><b>Main</b>
+<button type="submit" onclick="window.location.href='/profile'"><b>Profile</b></button>
+<button style="color:Tomato" type="submit" onclick="window.location.href='/bettedFixtures'"><b>your bettings</b>
+</button>
+<button type="submit" onclick="window.location.href='/register'"><b>Register</b>
+    <button type="submit" onclick="window.location.href='/test'"><b>Test</b></button>
+
 
 </button>
 
@@ -40,8 +45,8 @@
         <td th:text="${userBet.fixture.league.name}"/>
         <td th:text="${userBet.fixture.homeTeam.team_name}"/>
         <td th:text="${userBet.fixture.awayTeam.team_name}"/>
-        <td th:text="${userBet.HomeGoalsBet}"/>
-        <td th:text="${userBet.AwayGoalsBet}"/>
+        <!--        <td th:text="${userBet.HomeGoalsBet}"/>-->
+        <!--        <td th:text="${userBet.AwayGoalsBet}"/>-->
 
 
         <!--        <td>-->

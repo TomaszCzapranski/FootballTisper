@@ -1,10 +1,7 @@
 package com.TMT.controller;
 
 import com.TMT.model.game.UserBet;
-import com.TMT.service.FixtureRepository;
-import com.TMT.service.ProfileManager;
-import com.TMT.service.ProfileRepository;
-import com.TMT.service.UserBetManager;
+import com.TMT.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -28,7 +25,8 @@ public class GameController {
 
     @PostMapping("/editBet/{id}")
     public RedirectView updateUserBet(@PathVariable Long id, UserBet userBet) {
-        userBetManager.updateUserBet(userBet,id);
+
+        userBetManager.updateUserBet(id, userBet);
         return new RedirectView("/bettedFixtures");
     }
 

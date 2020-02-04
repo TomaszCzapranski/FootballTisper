@@ -1,5 +1,7 @@
 package com.TMT.controller;
 
+import com.TMT.model.game.PointCounter;
+import com.TMT.model.game.UserBet;
 import com.TMT.model.users.Profile;
 import com.TMT.service.FixtureRepository;
 import com.TMT.service.ProfileManager;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -54,10 +57,21 @@ public class ViewController {
 
     @GetMapping ("/profile")
     public String showProfile(Model model) {
-        model.addAttribute("profileList", profileRepository.findAll());
-        return "profile";
+        List<Profile> profileList = profileRepository.findAll();
+        System.out.println("Liczba profili: " + profileList.size());
+        model.addAttribute("profileList", profileList);
 
+//        PointCounter pointCounter = new PointCounter(1,1,1);
+//        List<Profile>profileList = profileRepository.findAll();
+//  e      for (Profile profile:profileList) {
+//            pointCounter.countPoints(profile);
+//
+//            }
+//        model.addAttribute("bettedFixturesList", profileList);
+        return "profile";
     }
+
+
     @GetMapping("/register")
     public String registerForm() {
         return "register";
@@ -65,6 +79,8 @@ public class ViewController {
 
     @PostMapping
     public RedirectView addCat(Profile profile) {
+        profile.setPoints((long) 0);
+        profile.setStatus("default");
         profileManager.addProfile(profile);
         return new RedirectView("/");
     }

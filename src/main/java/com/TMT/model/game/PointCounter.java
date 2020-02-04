@@ -25,9 +25,14 @@ public class PointCounter {
             Fixture fixture = bet.getFixture();
 
 
+//przywrocic pobieranie
+//            int betedHome = bet.getHomeGoalsBet();
+//            int betedAway = bet.getAwayGoalsBet();
+//            int realHome = fixture.getGoalsHomeTeam();
+//            int realeAway = fixture.getGoalsAwayTeam();
 
-            int betedHome = bet.getHomeGoalsBet();
-            int betedAway = bet.getAwayGoalsBet();
+            int betedHome = 1;
+            int betedAway = 2;
             int realHome = fixture.getGoalsHomeTeam();
             int realeAway = fixture.getGoalsAwayTeam();
 

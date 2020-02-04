@@ -8,49 +8,55 @@
 <body style="background-color: gold">
 <center><img src="/images/TMTtipster.jpg"></center>
 
-<button type="submit" onclick="window.location.href='/register'"><b>Register</b>
+<button style="color:Tomato" type="submit" onclick="window.location.href='/'"><b>Main</b>
 </button>
 <button type="submit" onclick="window.location.href='/bet'"><b>Bet your fixtures</b></button>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Status Short</th>
-        <th scope="col">Event Date</th>
-        <th scope="col">Round</th>
-        <th scope="col">League Country</th>
-        <th scope="col">League Name</th>
-        <th scope="col">Home Team</th>
-        <th scope="col">Away Team</th>
-        <th scope="col">Result</th>
-
-    </tr>
-    </thead>
-    <tbody>
-
-    <tr th:each="fixture: ${fixtureList}">
-
-        <td th:text="${fixture.statusShort}"/>
-        <td th:text="${fixture.event_date}"/>
-        <td th:text="${fixture.round}"/>
-        <td th:text="${fixture.league.country}"/>
-        <td th:text="${fixture.league.name}"/>
-        <td th:text="${fixture.homeTeam.team_name}"/>
-        <td th:text="${fixture.awayTeam.team_name}"/>
-        <td th:text="${fixture.result}"/>
+<button type="submit" onclick="window.location.href='/profile'"><b>Profile</b></button>
+<button  type="submit" onclick="window.location.href='/bettedFixtures'"><b>your bettings</b></button>
+<button type="submit" onclick="window.location.href='/register'"><b>Register</b>
+    <button type="submit" onclick="window.location.href='/test'"><b>Test</b></button>
 
 
-        <!--        <td>-->
-        <!--            <form th:action="'/cats/delete/' + ${cat.id}" method="POST">-->
-        <!--                <button type="submit" class="btn btn-danger">Delete</button>-->
-        <!--            </form>-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Status Short</th>
+            <th scope="col">Event Date</th>
+            <th scope="col">Round</th>
+            <th scope="col">League Country</th>
+            <th scope="col">League Name</th>
+            <th scope="col">Home Team</th>
+            <th scope="col">Away Team</th>
+            <th scope="col">Result</th>
 
-        <!--            <form th:action="'/cats/edit/' + ${cat.id}" method="GET">-->
-        <!--                <button type="submit" class="btn primary">Edit</button>-->
-        <!--            </form>-->
-        <!--        </td>-->
-    </tr>
+        </tr>
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
+        <tr th:each="fixture: ${fixtureList}">
+
+            <td th:text="${fixture.statusShort}"/>
+            <td th:text="${fixture.event_date}"/>
+            <td th:text="${fixture.round}"/>
+            <td th:text="${fixture.league.country}"/>
+            <td th:text="${fixture.league.name}"/>
+            <td th:text="${fixture.homeTeam.team_name}"/>
+            <td th:text="${fixture.awayTeam.team_name}"/>
+            <td th:text="${fixture.result}"/>
+
+
+            <!--        <td>-->
+            <!--            <form th:action="'/cats/delete/' + ${cat.id}" method="POST">-->
+            <!--                <button type="submit" class="btn btn-danger">Delete</button>-->
+            <!--            </form>-->
+
+            <!--            <form th:action="'/cats/edit/' + ${cat.id}" method="GET">-->
+            <!--                <button type="submit" class="btn primary">Edit</button>-->
+            <!--            </form>-->
+            <!--        </td>-->
+        </tr>
+
+        </tbody>
+    </table>
 </body>
 </html>
