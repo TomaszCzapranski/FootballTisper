@@ -45,16 +45,16 @@
         <td th:text="${userBet.fixture.league.name}"/>
         <td th:text="${userBet.fixture.homeTeam.team_name} ?: 'UNKNOWN'"/>
         <td th:text="${userBet.fixture.awayTeam.team_name}"/>
-<!--        napfawic niewiadomo czemu nie dziala-->
-<!--                <td th:text="${userBet.AwayGoalsBet}"/>-->
-<!--                <td th:text="${userBet.HomeGoalsBet}"/>-->
+        <!--        napfawic niewiadomo czemu nie dziala-->
+        <!--                <td th:text="${userBet.AwayGoalsBet}"/>-->
+        <!--                <td th:text="${userBet.HomeGoalsBet}"/>-->
 
-<!--        <td th:text="${userBet.awayGoalsBet != null} ? ${userBet.awayGoalsBet} : 'null value!'"></td>-->
+        <!--        <td th:text="${userBet.awayGoalsBet != null} ? ${userBet.awayGoalsBet} : 'null value!'"></td>-->
         <td th:text="${userBet.awayGoalsBet} ?:'null value!'"/>
         <td th:text="${userBet.homeGoalsBet} ?:'null value!'"/>
-<!--        <td th:text="${userBet.homeGoalsBet != null} ? ${userBet.homeGoalsBet} : 'null value!'"></td>-->
-<!--        <td th:text="${?userBet.?awayGoalsBet}></td>-->
-<!--        <td th:text="${?userBet.?homeGoalsBet}></td>-->
+        <!--        <td th:text="${userBet.homeGoalsBet != null} ? ${userBet.homeGoalsBet} : 'null value!'"></td>-->
+        <!--        <td th:text="${?userBet.?awayGoalsBet}></td>-->
+        <!--        <td th:text="${?userBet.?homeGoalsBet}></td>-->
 
 
 
