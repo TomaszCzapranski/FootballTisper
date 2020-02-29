@@ -1,5 +1,6 @@
 package com.TMT.controller;
 
+import com.TMT.model.game.GameManager;
 import com.TMT.model.game.PointCounter;
 import com.TMT.model.game.UserBet;
 import com.TMT.model.users.Profile;
@@ -31,6 +32,7 @@ public class ViewController {
     private ProfileManager profileManager;
     private ProfileRepository profileRepository;
 
+
 //    private UserBetRepository userBetRepository;
 
 //    @Autowired
@@ -46,6 +48,7 @@ public class ViewController {
         this.fixtureRepository = fixtureRepository;
         this.profileManager = profileManager;
         this.profileRepository = profileRepository;
+
     }
 
     @GetMapping

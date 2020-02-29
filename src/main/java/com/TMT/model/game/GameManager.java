@@ -17,8 +17,8 @@ public class GameManager {
 
 
     private ProfileRepository profileRepository;
-    private FixtureRepository fixtureRepository;
-    private UserBetRepository userBetRepository;
+//    private FixtureRepository fixtureRepository;
+//    private UserBetRepository userBetRepository;
     private PointCounter pointCounter;
 
 

@@ -1,5 +1,6 @@
 package com.TMT.controller;
 
+import com.TMT.model.game.GameManager;
 import com.TMT.model.game.UserBet;
 import com.TMT.service.*;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ public class GameController {
     private ProfileManager profileManager;
     private ProfileRepository profileRepository;
     private UserBetManager userBetManager;
+    private GameManager gameManager;
 
 
     public GameController(FixtureRepository fixtureRepository, ProfileManager profileManager, ProfileRepository profileRepository, UserBetManager userBetManager) {
@@ -27,7 +29,9 @@ public class GameController {
     public RedirectView updateUserBet(@PathVariable Long id, UserBet userBet) {
 
         userBetManager.updateUserBet(id, userBet);
+
         return new RedirectView("/bettedFixtures");
     }
+
 
 }

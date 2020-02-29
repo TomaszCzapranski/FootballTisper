@@ -10,6 +10,7 @@ import com.TMT.model.users.Profile;
 import com.TMT.service.FixtureRepository;
 import com.TMT.service.ProfileManager;
 import com.TMT.service.ProfileRepository;
+import com.TMT.service.UserBetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -29,6 +30,7 @@ public class Table {
     private RestTemplate restTemplate;
     private FixtureRepository fixtureRepository;
     private ProfileRepository profileRepository;
+    private UserBetRepository userBetRepository;
 
 
     @Autowired

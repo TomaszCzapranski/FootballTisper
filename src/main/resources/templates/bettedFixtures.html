@@ -43,10 +43,21 @@
         <td th:text="${userBet.fixture.round}"/>
         <td th:text="${userBet.fixture.league.country}"/>
         <td th:text="${userBet.fixture.league.name}"/>
-        <td th:text="${userBet.fixture.homeTeam.team_name}"/>
+        <td th:text="${userBet.fixture.homeTeam.team_name} ?: 'UNKNOWN'"/>
         <td th:text="${userBet.fixture.awayTeam.team_name}"/>
-        <!--        <td th:text="${userBet.HomeGoalsBet}"/>-->
-        <!--        <td th:text="${userBet.AwayGoalsBet}"/>-->
+<!--        napfawic niewiadomo czemu nie dziala-->
+<!--                <td th:text="${userBet.AwayGoalsBet}"/>-->
+<!--                <td th:text="${userBet.HomeGoalsBet}"/>-->
+
+        <td th:text="${userBet.awayGoalsBet != null} ? ${userBet.awayGoalsBet} : 'null value!'"></td>
+        <td th:text="${userBet.homeGoalsBet != null} ? ${userBet.homeGoalsBet} : 'null value!'"></td>
+<!--        <td th:text="${?userBet.?awayGoalsBet}></td>-->
+<!--        <td th:text="${?userBet.?homeGoalsBet}></td>-->
+
+
+
+        <!--        <td th:text="${userBet.getHomeGoalsBetString()}"/>-->
+        <!--        <td th:text="${userBet.getAwayGoalsBetString()}"/>-->
 
 
         <!--        <td>-->
@@ -54,7 +65,8 @@
         <!--                <button type="submit" class="btn btn-danger">Delete</button>-->
         <!--            </form>-->
 
-        <!--            <form th:action="'/cats/edit/' + ${cat.id}" method="GET">-->
+        <!--            <form th:action
+        ="'/cats/edit/' + ${cat.id}" method="GET">-->
         <!--                <button type="submit" class="btn primary">Edit</button>-->
         <!--            </form>-->
         <!--        </td>-->

@@ -61,6 +61,9 @@ public class UserBet {
     public Integer getHomeGoalsBet() {
         return HomeGoalsBet;
     }
+    public String getHomeGoalsBetString() {
+        return HomeGoalsBet.toString();
+    }
 
     public void setHomeGoalsBet(Integer homeGoalsBet) {
         HomeGoalsBet = homeGoalsBet;
@@ -68,6 +71,9 @@ public class UserBet {
 
     public int getAwayGoalsBet() {
         return AwayGoalsBet;
+    }
+    public String getAwayGoalsBetString() {
+        return AwayGoalsBet.toString();
     }
 
     public void setAwayGoalsBet(Integer awayGoalsBet) {
