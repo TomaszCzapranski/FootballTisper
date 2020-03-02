@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
-    Optional<Profile> findByName(String tomek);
+    Optional<Profile> findByName(String userName);
     void deleteByName(String tomek);
 
 

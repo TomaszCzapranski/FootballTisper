@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/game")
+@RequestMapping("/secure/game")
 public class GameController {
 
     private FixtureRepository fixtureRepository;

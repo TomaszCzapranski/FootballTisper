@@ -44,6 +44,14 @@ public class Profile {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.id= id;
+    }
+
+    public Profile(Profile profile) {
+
+        this.name = getName();
+        this.password = getPassword();
+        this.email = getEmail();
     }
 
 
